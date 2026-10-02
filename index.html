@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Stars Club | Inicio</title>
-<link rel="icon" type="image/png" href="Icono.jpg">
+    <!-- Asegúrate de que el archivo en GitHub se llame exactamente "Icono.jpg" respetando la mayúscula -->
+    <link rel="icon" type="image/png" href="Icono.jpg">
     <!-- Cargamos iconos de FontAwesome para WhatsApp e Instagram -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -77,7 +78,8 @@
 
         /* --- SECCIÓN HERO (INICIO) --- */
         .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), src("fondo.jpg") center/cover;
+            /* Corregido: Reemplazo de src() por url() */
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url("fondo.jpg") center/cover;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -232,7 +234,7 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* En un proyecto real se añadiría un menú hamburguesa aquí */
+                display: none; 
             }
             .hero h1 {
                 font-size: 2.5rem;
@@ -259,7 +261,6 @@
     <section id="inicio" class="hero">
         <h1>Bienvenido a Royal Stars Club</h1>
         <p>Academia Royal no es sólo entrenar padel, es entrenar tu cuerpo, tu mente y tu espíritu deportivo.</p>
-        <!-- Enlace a WhatsApp con el número especificado -->
         <a href="https://wa.me/543855944628?text=Hola,%20me%20gustaría%20recibir%20más%20información" class="btn btn-whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i> Contáctanos ahora
         </a>
@@ -269,7 +270,10 @@
     <section id="nosotros">
         <h2 class="section-title">Sobre Nosotros</h2>
         <div style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
-            <p><strong>[COMPLETA AQUÍ]</strong> Somos un equipo de profesionales apasionados por la enseñanza... Describe aquí la misión, visión y los valores de la institución o academia, similar a la presentación de la Academia Luis Merlo.</p>
+            <p><strong>[Equipo]</strong> Somos un equipo de profesionales apasionados por la enseñanza.</p>
+            <p><strong>[Misión]</strong> Nuestra misión es formar jugadores de pádel potenciando su rendimiento deportivo, desarrollo personal y pasión por el juego.</p>
+            <p><strong>[Valores]</strong> Excelencia · Disciplina · Respeto · Compañerismo · Superación · Compromiso </p>
+            <p><strong>[Visión]</strong> Ser una academia referente en la formación integral de jugadores, dentro y fuera de la pista. </p>
         </div>
     </section>
 
@@ -277,17 +281,14 @@
     <section id="cursos" style="background-color: #f1f5f9;">
         <h2 class="section-title">Nuestros Cursos</h2>
         <div class="cards-container">
-            <!-- Tarjeta 1 -->
             <div class="card">
                 <h3>Clases y Entrenamientos</h3>
                 <p><strong>[COMPLETA AQUÍ]</strong> Descripción breve sobre esta modalidad, horarios o características principales del curso presencial o virtual.</p>
             </div>
-            <!-- Tarjeta 2 -->
             <div class="card">
                 <h3>Cursos Online</h3>
                 <p><strong>[COMPLETA AQUÍ]</strong> Descripción breve de los cursos a distancia, plataformas utilizadas y métodos de evaluación.</p>
             </div>
-            <!-- Tarjeta 3 -->
             <div class="card">
                 <h3>Eventos y Clínicas</h3>
                 <p><strong>[COMPLETA AQUÍ]</strong> Información sobre eventos especiales, clínicas intensivas o seminarios programados.</p>
@@ -301,11 +302,9 @@
         <p style="margin-top: 10px;">Síguenos en nuestras redes sociales o envíanos un mensaje directo.</p>
         
         <div class="social-links">
-            <!-- Enlace a Instagram -->
             <a href="https://instagram.com/royalstarsclub" target="_blank" title="Instagram">
                 <i class="fab fa-instagram"></i>
             </a>
-            <!-- Enlace alternativo a WhatsApp en el footer -->
             <a href="https://wa.me/543855944628" target="_blank" title="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
