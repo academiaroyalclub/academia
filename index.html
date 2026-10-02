@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Stars Club | Inicio</title>
+    <!-- Cargamos iconos de FontAwesome para WhatsApp e Instagram -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        :root {
+            --primary-color: #0f172a; /* Azul oscuro */
+            --accent-color: #fbbf24; /* Dorado/Amarillo */
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --whatsapp-color: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-dark);
+        }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        header {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- SECCIÓN HERO (INICIO) --- */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe57;
+            transform: translateY(-3px);
+        }
+
+        /* --- SECCIONES (Nosotros, Cursos) --- */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- TARJETAS DE CURSOS/SERVICIOS --- */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* --- PIE DE PÁGINA (CONTACTO) --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            color: var(--text-light);
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* --- BOTÓN FLOTANTE WHATSAPP --- */
+        .float-ws {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .float-ws:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* En un proyecto real se añadiría un menú hamburguesa aquí */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header>
+        <nav>
+            <a href="#" class="logo">ROYAL STARS CLUB</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#cursos">Cursos y Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN INICIO -->
+    <section id="inicio" class="hero">
+        <h1>Bienvenido a Royal Stars Club</h1>
+        <p>Aquí puedes agregar un texto persuasivo que describa brevemente la academia, la formación o el servicio principal que ofreces.</p>
+        <!-- Enlace a WhatsApp con el número especificado -->
+        <a href="https://wa.me/543855944628?text=Hola,%20me%20gustaría%20recibir%20más%20información" class="btn btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i> Contáctanos ahora
+        </a>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS -->
+    <section id="nosotros">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+            <p><strong>[COMPLETA AQUÍ]</strong> Somos un equipo de profesionales apasionados por la enseñanza... Describe aquí la misión, visión y los valores de la institución o academia, similar a la presentación de la Academia Luis Merlo.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CURSOS / SERVICIOS -->
+    <section id="cursos" style="background-color: #f1f5f9;">
+        <h2 class="section-title">Nuestros Cursos</h2>
+        <div class="cards-container">
+            <!-- Tarjeta 1 -->
+            <div class="card">
+                <h3>Clases y Entrenamientos</h3>
+                <p><strong>[COMPLETA AQUÍ]</strong> Descripción breve sobre esta modalidad, horarios o características principales del curso presencial o virtual.</p>
+            </div>
+            <!-- Tarjeta 2 -->
+            <div class="card">
+                <h3>Cursos Online</h3>
+                <p><strong>[COMPLETA AQUÍ]</strong> Descripción breve de los cursos a distancia, plataformas utilizadas y métodos de evaluación.</p>
+            </div>
+            <!-- Tarjeta 3 -->
+            <div class="card">
+                <h3>Eventos y Clínicas</h3>
+                <p><strong>[COMPLETA AQUÍ]</strong> Información sobre eventos especiales, clínicas intensivas o seminarios programados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA (CONTACTO Y REDES) -->
+    <footer id="contacto">
+        <h2>Conecta con Nosotros</h2>
+        <p style="margin-top: 10px;">Síguenos en nuestras redes sociales o envíanos un mensaje directo.</p>
+        
+        <div class="social-links">
+            <!-- Enlace a Instagram -->
+            <a href="https://instagram.com/royalstarsclub" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <!-- Enlace alternativo a WhatsApp en el footer -->
+            <a href="https://wa.me/543855944628" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        
+        <p class="footer-text">© 2026 Royal Stars Club. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/543855944628?text=Hola,%20me%20gustaría%20recibir%20más%20información" class="float-ws" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
