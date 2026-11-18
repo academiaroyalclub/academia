@@ -1,46 +1,1232 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="theme-color" content="#0c1b2d"/>
-<meta name="description" content="Horarios y calendario de actividades de Royal Star’s Club."/>
-<title>Cronograma | Royal Star’s Club</title>
-<link rel="icon" href="assets/img/favicon-royal.png" type="image/png"/>
-<link rel="stylesheet" href="assets/css/portal.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1b2d">
+  <title>Cronograma y Posiciones | Liga de Royal</title>
+  <link rel="icon" type="image/png" href="favicon-royal.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#0c1b2d;--blue:#173b63;--blue2:#2d5686;--orange:#f58220;--orange2:#ffad55;--ink:#172231;--muted:#5e6b7a;--paper:#fffdf9}
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;font-family:Montserrat,sans-serif;color:var(--ink);background:#09182a}
+    body::before{content:"";position:fixed;inset:0;z-index:-2;background:url('fondo-royal.png') center/cover no-repeat}
+    body::after{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,rgba(4,13,25,.72),rgba(5,16,29,.58))}
+    a{color:inherit}
+
+    .topbar{background:rgba(8,20,35,.94);backdrop-filter:blur(12px);border-bottom:1px solid #ffffff20;color:#fff}
+    .topbar-inner{max-width:1180px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-weight:900;letter-spacing:.02em}
+    .brand img{width:52px;height:52px;object-fit:contain}
+    .brand span{display:block;font-size:1rem;line-height:1.1}
+    .brand small{display:block;color:#ffb36b;font-size:.65rem;letter-spacing:.19em;margin-top:5px}
+    .back-link{display:inline-flex;align-items:center;gap:8px;color:#e5edf7;text-decoration:none;border:1px solid #ffffff4d;padding:10px 14px;border-radius:5px;font-size:.82rem;font-weight:800}
+    .back-link:hover{background:#ffffff16;color:#fff}
+    .page{max-width:1180px;margin:0 auto;padding:32px 22px 58px}
+
+    .hero{padding:clamp(26px,5vw,40px);background:linear-gradient(115deg,rgba(24,61,101,.97),rgba(9,25,44,.96));border:1px solid #ffffff2c;box-shadow:0 24px 60px #0004;color:#fff;text-align:center;margin-bottom:20px}
+    .hero h1{font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.05em;line-height:1;margin:0;font-weight:1000;text-transform:uppercase}
+    .hero p{color:#ffb76e;font-weight:900;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;margin:10px 0 0}
+
+    .content-grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}
+    
+    .panel{background:rgba(255,253,249,.97);padding:clamp(20px,3vw,32px);border:1px solid #ffffffa8;box-shadow:0 15px 38px #08172926;border-radius:6px;}
+    .kicker{font-size:.7rem;letter-spacing:.19em;text-transform:uppercase;color:#a35f1d;font-weight:900}
+    .panel h2{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:1000;letter-spacing:-.05em;color:var(--navy);margin:8px 0 18px}
+
+    @media(max-width:620px){
+        .topbar-inner{padding:10px 15px}
+        .brand img{width:43px;height:43px}
+        .brand span{font-size:.84rem}
+        .brand small{font-size:.56rem}
+        .back-link{font-size:0;padding:11px}
+        .back-link::after{content:"Volver";font-size:.78rem}
+        .page{padding:18px 13px 40px}
+        .hero{padding:25px 20px}
+    }
+  </style>
 </head>
 <body>
-<header class="portal-topbar"><div class="portal-topbar-inner">
-<a class="portal-brand" href="index.html"><img src="assets/img/logo-royal.png" alt="Escudo Royal Star’s Club"/><span>ROYAL STAR’S CLUB<small>PÁDEL · EQUIPO · FORMACIÓN</small></span></a>
-<a class="portal-back" href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver al sitio</a>
-</div></header>
-<main class="portal-page">
-<section class="portal-hero" data-mark="FECHAS"><div class="portal-hero-content">
-<span class="portal-kicker">Organizá tu semana</span><h1>Cronograma <span>Royal</span></h1>
-<p>Consultá la grilla orientativa de actividades y revisá las fechas publicadas en el calendario de Royal Star’s Club.</p>
-<a class="portal-btn" href="#horarios"><i class="fa-regular fa-clock"></i> Ver horarios</a>
-<a class="portal-btn secondary" href="#calendario"><i class="fa-regular fa-calendar"></i> Ver calendario</a>
-</div></section>
-<section class="portal-panel" id="horarios">
-<span class="portal-kicker">Planificá tus prácticas</span><h2>Horarios de entrenamiento</h2>
-<p class="portal-intro">Esta grilla conserva los horarios ilustrativos de la página principal. Confirmá disponibilidad y turnos vigentes por WhatsApp antes de asistir.</p>
-<div class="schedule-table-wrap"><table class="schedule-table"><thead><tr><th>Actividad</th><th>Categoría</th><th>Días</th><th>Horario de referencia</th></tr></thead><tbody>
-<tr><td>Escuela de pádel</td><td>Infantiles</td><td>Lunes y miércoles</td><td><span class="schedule-time">09:00–10:00</span></td></tr>
-<tr><td>Formación técnica</td><td>Adolescentes</td><td>Martes y jueves</td><td><span class="schedule-time">17:00–18:30</span></td></tr>
-<tr><td>Entrenamiento general</td><td>Adultos</td><td>Lunes, miércoles y viernes</td><td><span class="schedule-time">18:30–20:00</span></td></tr>
-<tr><td>Preparación competitiva</td><td>Por nivel</td><td>Sábados</td><td><span class="schedule-time">A coordinar</span></td></tr>
-</tbody></table></div>
-<div class="portal-alert"><strong>Atención:</strong> los horarios son de referencia y no representan una confirmación de cupos o clases disponibles. Consultá los turnos vigentes antes de asistir.</div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><img src="logo-royal.png" alt="Royal Star’s Club"><span>ROYAL STAR’S CLUB<small>LIGA DE PÁDEL</small></span></a>
+      <a class="back-link" href="index.html">← Volver al inicio</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Cronograma y Posiciones</h1>
+      <p>Gestiona tus partidos y revisa las tablas de posiciones.</p>
+    </section>
+
+    <div class="content-grid">
+
+      <!-- SECCIÓN TABLAS DE POSICIONES Y ZONAS POR CATEGORÍA CON FILTROS -->
+<section id="zonas-liga" class="panel" style="margin-top: 18px;">
+  <style>
+    .zonas-filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 22px; }
+    .zonas-filter-btn { border: 1px solid #d9dfe6; background: #fff; padding: 10px 15px; font: inherit; font-size: 0.82rem; font-weight: 900; color: #536174; cursor: pointer; border-radius: 3px; transition: all 0.18s ease; }
+    .zonas-filter-btn:hover { border-color: var(--orange, #f58220); color: var(--navy, #0c1b2d); }
+    .zonas-filter-btn.active { background: var(--orange, #f58220); border-color: var(--orange, #f58220); color: #111c2c; box-shadow: 0 4px 12px rgba(245, 130, 32, 0.25); }
+    .categoria-bloque { margin-bottom: 36px; border-bottom: 1px solid #e5e0d8; padding-bottom: 28px; }
+    .categoria-bloque:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .categoria-bloque.hidden-cat { display: none; }
+    .categoria-titulo { color: var(--navy, #0c1b2d); font-size: 1.35rem; font-weight: 900; margin: 0 0 16px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
+    .categoria-titulo::before { content: ""; display: inline-block; width: 6px; height: 22px; background: var(--orange, #f58220); border-radius: 2px; }
+    .zonas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 18px; }
+    .zona-card { background: #fff; border: 1px solid #e8e2d9; border-radius: 4px; padding: 14px 16px; box-shadow: 0 5px 15px rgba(8, 23, 41, 0.04); overflow: hidden; }
+    .zona-card h4 { margin: 0 0 10px; font-size: 0.85rem; font-weight: 900; color: var(--orange, #f58220); text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #f0ece1; padding-bottom: 8px; }
+    .zona-table-wrap { overflow-x: auto; }
+    .tabla-posiciones { width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: center; min-width: 440px; }
+    .tabla-posiciones th { background: var(--navy, #0c1b2d); color: #fff; padding: 7px 5px; font-weight: 900; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; }
+    .tabla-posiciones th.col-pareja, .tabla-posiciones td.col-pareja { text-align: left; padding-left: 8px; font-weight: 800; color: var(--navy, #0c1b2d); white-space: nowrap; }
+    .tabla-posiciones td { padding: 7px 5px; border-bottom: 1px solid #f0ece1; color: var(--navy, #0c1b2d); font-weight: 600; }
+    .tabla-posiciones tr:nth-child(even) { background: #fbf9f5; }
+    .tabla-posiciones tr:hover { background: #fdf5eb; }
+    .tabla-posiciones tr:last-child td { border-bottom: none; }
+    .tabla-posiciones td.pts { color: var(--orange, #f58220); font-weight: 900; font-size: 0.88rem; background: rgba(245, 130, 32, 0.06); }
+    .pos-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.75rem; color: #536174; margin-bottom: 20px; background: #fbf9f5; padding: 10px 14px; border-radius: 4px; border: 1px solid #e8e2d9; }
+    .pos-legend span strong { color: var(--navy, #0c1b2d); }
+    @media (max-width: 620px) {
+      .zonas-grid { grid-template-columns: 1fr; }
+      .zona-card { padding: 12px; }
+      .zonas-filter-btn { flex: 1 1 calc(50% - 8px); text-align: center; padding: 9px 10px; font-size: 0.78rem; }
+    }
+  </style>
+
+  <span class="kicker">Fase de Grupos</span>
+  <h2>Tablas de Posiciones y Zonas</h2>
+
+  <!-- BOTONES DE FILTRO POR CATEGORÍA -->
+  <div class="zonas-filter-bar" role="tablist" aria-label="Filtrar zonas por categoría">
+    <button type="button" class="zonas-filter-btn active" onclick="filtrarZonasCategoria('todas', this)">Todas</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('Iniciados Masculino', this)">Iniciados Masc.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('8va Masculina', this)">8va Masc.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('7ma Masculina', this)">7ma Masc.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('6ta Masculina', this)">6ta Masc.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('5ta Masculina', this)">5ta Masc.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('Suma 6 Masculina', this)">Suma 6 Masc.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('Iniciadas Femenino', this)">Iniciadas Fem.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('8va Femenina', this)">8va Fem.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('7ma Femenina', this)">7ma Fem.</button>
+    <button type="button" class="zonas-filter-btn" onclick="filtrarZonasCategoria('Suma 11 Femenina', this)">Suma 11 Fem.</button>
+  </div>
+
+  <div class="pos-legend">
+    <span><strong>Pts:</strong> Puntos</span>
+    <span><strong>PJ:</strong> Partidos Jugados</span>
+    <span><strong>PG:</strong> Ganados</span>
+    <span><strong>PP:</strong> Perdidos</span>
+    <span><strong>SF:</strong> Sets a Favor</span>
+    <span><strong>SC:</strong> Sets en Contra</span>
+    <span><strong>DS:</strong> Dif. Sets</span>
+    <span><strong>GF:</strong> Games a Favor</span>
+    <span><strong>GC:</strong> Games en Contra</span>
+    <span><strong>DG:</strong> Dif. Games</span>
+  </div>
+
+  <!-- Iniciados Masculino -->
+  <div class="categoria-bloque" data-categoria="Iniciados Masculino">
+    <h3 class="categoria-titulo">Iniciados Masculino</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Uriarte / Urquiza</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>2</td><td>10</td></tr>
+              <tr><td class="col-pareja">Diaz / Giovane</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>3</td><td>9</td></tr>
+              <tr><td class="col-pareja">Sanchez / Luna</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>3</td><td>12</td><td>-9</td></tr>
+              <tr><td class="col-pareja">Peña / Ysse</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>2</td><td>12</td><td>-10</td></tr>
+              <tr><td class="col-pareja">Chara / Barquin</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Coria / Soria</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>6</td><td>7</td></tr>
+              <tr><td class="col-pareja">Abdala / Corvalan</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>8</td><td>5</td></tr>
+              <tr><td class="col-pareja">Campos / Jimenez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>8</td><td>13</td><td>-5</td></tr>
+              <tr><td class="col-pareja">Ojeda / Sayago</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>6</td><td>13</td><td>-7</td></tr>
+              <tr><td class="col-pareja">Santillan / Santillan</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Galeano / Castaño</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>1</td><td>11</td></tr>
+              <tr><td class="col-pareja">Rodriguez / Goitea</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>9</td><td>4</td></tr>
+              <tr><td class="col-pareja">Lescano / Galvan</td><td class="pts">80</td><td>2</td><td>0</td><td>2</td><td>0</td><td>4</td><td>-4</td><td>13</td><td>25</td><td>-12</td></tr>
+              <tr><td class="col-pareja">Trullenque / Ledesma</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>9</td><td>13</td><td>-4</td></tr>
+              <tr><td class="col-pareja">Guzman / Ponce</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>1</td><td>12</td><td>-11</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 8va Masculina -->
+  <div class="categoria-bloque" data-categoria="8va Masculina">
+    <h3 class="categoria-titulo">8va Masculina</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Bustamante / Escalada</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>14</td><td>11</td><td>3</td></tr>
+              <tr><td class="col-pareja">Carmona / Banegas</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>17</td><td>15</td><td>2</td></tr>
+              <tr><td class="col-pareja">Ledesma / Gomez E.</td><td class="pts">140</td><td>2</td><td>0</td><td>2</td><td>1</td><td>4</td><td>-3</td><td>17</td><td>26</td><td>-9</td></tr>
+              <tr><td class="col-pareja">Mansilla / Veliz</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>15</td><td>17</td><td>-2</td></tr>
+              <tr><td class="col-pareja">Ruiz / Schiava</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>8</td><td>16</td><td>-8</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Hrourzek / Azar</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>5</td><td>7</td></tr>
+              <tr><td class="col-pareja">Ponce / Gerez</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>12</td><td>10</td><td>2</td></tr>
+              <tr><td class="col-pareja">Pont / Orrego</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>10</td><td>12</td><td>-2</td></tr>
+              <tr><td class="col-pareja">Chavez / Lobo</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>5</td><td>12</td><td>-7</td></tr>
+              <tr><td class="col-pareja">Ruiz / Ciappino</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Campos / Lescano</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Bravo / Cejas</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>2</td><td>10</td></tr>
+              <tr><td class="col-pareja">Miranda / Alfaro</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>4</td><td>8</td></tr>
+              <tr><td class="col-pareja">Gianonni / Terzano</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>18</td><td>13</td><td>5</td></tr>
+              <tr><td class="col-pareja">Arias / Rojas</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>13</td><td>18</td><td>-5</td></tr>
+              <tr><td class="col-pareja">Escalada / Robles</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>2</td><td>12</td><td>-10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona D</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Guzman / Villalba</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>4</td><td>8</td></tr>
+              <tr><td class="col-pareja">Montenegro / Cereaola</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>16</td><td>8</td><td>8</td></tr>
+              <tr><td class="col-pareja">Coria / Luna</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>8</td><td>16</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Bolañez / Medina</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>4</td><td>12</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Storniolo / Segura</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona E</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Salvatierra / Masferrer</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>1</td><td>11</td></tr>
+              <tr><td class="col-pareja">Gerez / Danna</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>2</td><td>10</td></tr>
+              <tr><td class="col-pareja">Reuter / Alderete</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>2</td><td>12</td><td>-10</td></tr>
+              <tr><td class="col-pareja">Salvi / Lofiego</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>1</td><td>12</td><td>-11</td></tr>
+              <tr><td class="col-pareja">Rodas / Caballero</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona F</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Godoy / Torrez</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>2</td><td>10</td></tr>
+              <tr><td class="col-pareja">Ruiz / Palmas</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>5</td><td>7</td></tr>
+              <tr><td class="col-pareja">Montenegro T. / Elias</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>9</td><td>4</td></tr>
+              <tr><td class="col-pareja">Benac / Coria</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>9</td><td>13</td><td>-4</td></tr>
+              <tr><td class="col-pareja">Almada / Cervera</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>2</td><td>12</td><td>-10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona G</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Pedregal / Barrionuevo</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>6</td><td>6</td></tr>
+              <tr><td class="col-pareja">Galvan / Terrera</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>15</td><td>14</td><td>1</td></tr>
+              <tr><td class="col-pareja">Lopez / Diaz</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>14</td><td>15</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Ledesma J. / Gomez L.</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Pacheco / Martinez</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona H</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Ramirez / Ludueña</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>8</td><td>5</td></tr>
+              <tr><td class="col-pareja">Vargas / Paez</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>9</td><td>4</td></tr>
+              <tr><td class="col-pareja">Karam / Escobar</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>18</td><td>12</td><td>6</td></tr>
+              <tr><td class="col-pareja">Herrera / Ponce</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>12</td><td>18</td><td>-6</td></tr>
+              <tr><td class="col-pareja">Machado / Rocha</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>9</td><td>13</td><td>-4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 7ma Masculina -->
+  <div class="categoria-bloque" data-categoria="7ma Masculina">
+    <h3 class="categoria-titulo">7ma Masculina</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Villalba / Brizuela</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>3</td><td>9</td></tr>
+              <tr><td class="col-pareja">Martinez / Zanoni</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>6</td><td>6</td></tr>
+              <tr><td class="col-pareja">Vidal / Chavez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>6</td><td>12</td><td>-6</td></tr>
+              <tr><td class="col-pareja">Diaz / Dominguez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>3</td><td>12</td><td>-9</td></tr>
+              <tr><td class="col-pareja">Omill / Cisneros</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Barrionuevo / Peralta</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>9</td><td>4</td></tr>
+              <tr><td class="col-pareja">Eberle / De Matteis</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>12</td><td>16</td><td>-4</td></tr>
+              <tr><td class="col-pareja">Cura / Lopez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>9</td><td>13</td><td>-4</td></tr>
+              <tr><td class="col-pareja">Carrillo / Urrere</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Ponti / Falcon</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Abutti / Rodriguez</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>2</td><td>10</td></tr>
+              <tr><td class="col-pareja">Abelleira / Pacheco</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>4</td><td>8</td></tr>
+              <tr><td class="col-pareja">Chamorro / Rios</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>4</td><td>12</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Montinho / Ojeda</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>2</td><td>12</td><td>-10</td></tr>
+              <tr><td class="col-pareja">Flamenco / Gerez</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Roldan / Lescano</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona D</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Carabajal / Coronel</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>3</td><td>9</td></tr>
+              <tr><td class="col-pareja">Molina / Britos</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>16</td><td>14</td><td>2</td></tr>
+              <tr><td class="col-pareja">Diaz / Veliz</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>14</td><td>16</td><td>-2</td></tr>
+              <tr><td class="col-pareja">Troncozo / Diaz</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>3</td><td>12</td><td>-9</td></tr>
+              <tr><td class="col-pareja">Olivera / Aranda</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona E</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Paoleti / Ruiz</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>5</td><td>7</td></tr>
+              <tr><td class="col-pareja">Bolañez / Cia</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>10</td><td>3</td></tr>
+              <tr><td class="col-pareja">Ferrando / Jimenez</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>16</td><td>8</td><td>8</td></tr>
+              <tr><td class="col-pareja">Arias / Leguizamon</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>10</td><td>13</td><td>-3</td></tr>
+              <tr><td class="col-pareja">Gonzalez / Zanni</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>5</td><td>12</td><td>-7</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona F</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Costas / Saavedra</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>5</td><td>8</td></tr>
+              <tr><td class="col-pareja">Lucca / Ferrou</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>5</td><td>13</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Ruiz / Rojas</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>4</td><td>12</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Rojas / Gutierres</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Roldan / Diaz</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona G</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Gomez / Peryra</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>3</td><td>9</td></tr>
+              <tr><td class="col-pareja">Vizcarra / Bernasconi</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>4</td><td>8</td></tr>
+              <tr><td class="col-pareja">Burgos / Gomez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>4</td><td>12</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Leguizamon / Bolañez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>3</td><td>12</td><td>-9</td></tr>
+              <tr><td class="col-pareja">De la Rua / Giovanelo</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 6ta Masculina -->
+  <div class="categoria-bloque" data-categoria="6ta Masculina">
+    <h3 class="categoria-titulo">6ta Masculina</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Rovarini / Lludgar</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>18</td><td>15</td><td>3</td></tr>
+              <tr><td class="col-pareja">Stochetti / Ruiz</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>15</td><td>18</td><td>-3</td></tr>
+              <tr><td class="col-pareja">Risso / Paz</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Serrano / Serrano</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Torrez / Nuri</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Slavatierra / Alderete</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>7</td><td>5</td></tr>
+              <tr><td class="col-pareja">Arias / Santucho</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>17</td><td>18</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Salvi / Burgos</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>18</td><td>17</td><td>1</td></tr>
+              <tr><td class="col-pareja">Manzur / Cinquegrani</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>7</td><td>12</td><td>-5</td></tr>
+              <tr><td class="col-pareja">Gonzales / Orona</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Torrez / Villalba</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>0</td><td>12</td></tr>
+              <tr><td class="col-pareja">Faes / Maguna</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>14</td><td>8</td><td>6</td></tr>
+              <tr><td class="col-pareja">Ibañez / Langhi</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>8</td><td>14</td><td>-6</td></tr>
+              <tr><td class="col-pareja">Vergottini / Gomez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>0</td><td>12</td><td>-12</td></tr>
+              <tr><td class="col-pareja">Coronel / Jimenez</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona D</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Lozano / Cia</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>14</td><td>10</td><td>4</td></tr>
+              <tr><td class="col-pareja">Sayago / Coria</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>10</td><td>14</td><td>-4</td></tr>
+              <tr><td class="col-pareja">Rios / Guerrero</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Correa / Kapp</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Ledesma / Ledesma</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona E</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Acosta / Farias</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>9</td><td>4</td></tr>
+              <tr><td class="col-pareja">Neder / Gassman</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>17</td><td>16</td><td>1</td></tr>
+              <tr><td class="col-pareja">Ponce / Mansilla</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>16</td><td>17</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Romano / Benac</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>9</td><td>13</td><td>-4</td></tr>
+              <tr><td class="col-pareja">Pappalardo / Lazarte</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona F</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Raineri / Olivera</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>5</td><td>8</td></tr>
+              <tr><td class="col-pareja">Corvalan / Diaz</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>6</td><td>7</td></tr>
+              <tr><td class="col-pareja">Carrizo / Rodriguez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>6</td><td>13</td><td>-7</td></tr>
+              <tr><td class="col-pareja">Ramirez / Mancuello</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>5</td><td>13</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Acosta / Bovatti</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 5ta Masculina -->
+  <div class="categoria-bloque" data-categoria="5ta Masculina">
+    <h3 class="categoria-titulo">5ta Masculina</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Del Castillo / Curet</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>17</td><td>16</td><td>1</td></tr>
+              <tr><td class="col-pareja">Garcia / Montero</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>16</td><td>17</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Fernandez / Fernandez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>6</td><td>12</td><td>-6</td></tr>
+              <tr><td class="col-pareja">Beltran / Auat</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Hernandez / Ibañez</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Gassman / Arce</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>6</td><td>6</td></tr>
+              <tr><td class="col-pareja">Greco / Scaglione</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>6</td><td>12</td><td>-6</td></tr>
+              <tr><td class="col-pareja">Mussi / Garay</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Romano / Coria</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Campos / Ruiz</td><td class="pts">600</td><td>2</td><td>2</td><td>0</td><td>4</td><td>0</td><td>4</td><td>24</td><td>6</td><td>18</td></tr>
+              <tr><td class="col-pareja">Lopez Saad / Arias</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>6</td><td>6</td></tr>
+              <tr><td class="col-pareja">Olivera / Danna</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>6</td><td>12</td><td>-6</td></tr>
+              <tr><td class="col-pareja">Sanchez / Terzano</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona D</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Alderete / Viotti</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>3</td><td>9</td></tr>
+              <tr><td class="col-pareja">Milet / Garnica</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>6</td><td>7</td></tr>
+              <tr><td class="col-pareja">Alcorta / Araujo</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>6</td><td>13</td><td>-7</td></tr>
+              <tr><td class="col-pareja">Bravo / Zambolin</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>3</td><td>12</td><td>-9</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona E</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Ledesma / Delgado</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>15</td><td>16</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Camacho / Suarez</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>16</td><td>15</td><td>1</td></tr>
+              <tr><td class="col-pareja">Gulota / Rojas</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Galvan / Carabajal</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Lludgar / Alaimo</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Suma 6 Masculina -->
+  <div class="categoria-bloque" data-categoria="Suma 6 Masculina">
+    <h3 class="categoria-titulo">Suma 6 Masculina</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Celis / Mancuello</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>10</td><td>3</td></tr>
+              <tr><td class="col-pareja">Montenegro / Cavallero</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>10</td><td>13</td><td>-3</td></tr>
+              <tr><td class="col-pareja">Pereyra / Ruiz</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Sayago / Castillo</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Quadreli / Castro</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>14</td><td>11</td><td>3</td></tr>
+              <tr><td class="col-pareja">Bolomo / Bolomo</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>11</td><td>14</td><td>-3</td></tr>
+              <tr><td class="col-pareja">Scrimini / Alonso</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Nazario / Celis</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Ybañez / Auadt</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Lopez / Paz</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>1</td><td>11</td></tr>
+              <tr><td class="col-pareja">Abate / Vizcarra</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>1</td><td>12</td><td>-11</td></tr>
+              <tr><td class="col-pareja">Gomez / Gonzales</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Gomez / Bastit</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Iniciadas Femenino -->
+  <div class="categoria-bloque" data-categoria="Iniciadas Femenino">
+    <h3 class="categoria-titulo">Iniciadas Femenino</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Bustos / Filipi</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>4</td><td>8</td></tr>
+              <tr><td class="col-pareja">Leiva / Julian</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>10</td><td>3</td></tr>
+              <tr><td class="col-pareja">Muratore / Contardi</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>10</td><td>13</td><td>-3</td></tr>
+              <tr><td class="col-pareja">Ganem / Moreno</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>0</td><td>12</td><td>-12</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Busso / Romero</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>9</td><td>10</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Soria / Caceres</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>10</td><td>9</td><td>1</td></tr>
+              <tr><td class="col-pareja">Lescano / Dominguez</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Veron / Veron</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Campos / Ruiz</td><td class="pts">600</td><td>2</td><td>2</td><td>0</td><td>4</td><td>0</td><td>4</td><td>24</td><td>6</td><td>18</td></tr>
+              <tr><td class="col-pareja">Cajal / Ganin</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>9</td><td>4</td></tr>
+              <tr><td class="col-pareja">Valdez / Silvetti</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>9</td><td>13</td><td>-4</td></tr>
+              <tr><td class="col-pareja">Molina / Soler</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>0</td><td>12</td><td>-12</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona D</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Azar / Migueles</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Orellana / Yazbec</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Gomez / Lobos</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Lopez / Gerez</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Nazar / Cia</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 8va Femenina -->
+  <div class="categoria-bloque" data-categoria="8va Femenina">
+    <h3 class="categoria-titulo">8va Femenina</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Paz / Bianchi</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>5</td><td>7</td></tr>
+              <tr><td class="col-pareja">Juarez / Enrico</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>16</td><td>15</td><td>1</td></tr>
+              <tr><td class="col-pareja">Loto / Pedraza</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>15</td><td>16</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Figueroa / Leguizamon</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>5</td><td>12</td><td>-7</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Coria / Mazzoleni</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>7</td><td>5</td></tr>
+              <tr><td class="col-pareja">Martinez / Romero</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>14</td><td>7</td><td>7</td></tr>
+              <tr><td class="col-pareja">Infante / Cervetto</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>7</td><td>12</td><td>-5</td></tr>
+              <tr><td class="col-pareja">Salazar / Ferrau</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Abate / Trejo</td><td class="pts">400</td><td>2</td><td>1</td><td>1</td><td>3</td><td>2</td><td>1</td><td>26</td><td>16</td><td>10</td></tr>
+              <tr><td class="col-pareja">Suarez / Gonzales</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>16</td><td>14</td><td>2</td></tr>
+              <tr><td class="col-pareja">Muño / Olivares</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>18</td><td>18</td><td>0</td></tr>
+              <tr><td class="col-pareja">Toloza / Miranda</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>18</td><td>18</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona D</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Morales / Destefani</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Arias Coman / Santillan</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Rea / Taboada</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Olmedo / Orellana</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona E</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Ruiz / Sydow</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>2</td><td>10</td></tr>
+              <tr><td class="col-pareja">Quevedo / Otrera</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>3</td><td>9</td></tr>
+              <tr><td class="col-pareja">Auatt / Gerez</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>3</td><td>12</td><td>-9</td></tr>
+              <tr><td class="col-pareja">Bravo / Bravo</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>2</td><td>12</td><td>-10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona F</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Lludgar / Dardatt</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>12</td><td>11</td><td>1</td></tr>
+              <tr><td class="col-pareja">Barbero / Infante</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>11</td><td>12</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Coman / Coman</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>4</td><td>12</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Suarez / Cia</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 7ma Femenina -->
+  <div class="categoria-bloque" data-categoria="7ma Femenina">
+    <h3 class="categoria-titulo">7ma Femenina</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Chemez / Rojo</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>8</td><td>5</td></tr>
+              <tr><td class="col-pareja">Micol / Chazarreta</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>17</td><td>16</td><td>1</td></tr>
+              <tr><td class="col-pareja">Roldan / Colombres</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>16</td><td>17</td><td>-1</td></tr>
+              <tr><td class="col-pareja">Fernandez / Araujo</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>8</td><td>13</td><td>-5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Martinez / Larralde</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>10</td><td>3</td></tr>
+              <tr><td class="col-pareja">Castillo / Aguila</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>17</td><td>15</td><td>2</td></tr>
+              <tr><td class="col-pareja">Gola / Nebro</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>15</td><td>17</td><td>-2</td></tr>
+              <tr><td class="col-pareja">Galeano / Cianferoni</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>10</td><td>13</td><td>-3</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Orieta / Tobar</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>5</td><td>7</td></tr>
+              <tr><td class="col-pareja">Rojas / Butiler</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>7</td><td>6</td></tr>
+              <tr><td class="col-pareja">Rossi / Rodini</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>7</td><td>13</td><td>-6</td></tr>
+              <tr><td class="col-pareja">Abalos / Demarchi</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>5</td><td>12</td><td>-7</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona D</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Perez / Cortez</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>4</td><td>8</td></tr>
+              <tr><td class="col-pareja">Alegre / Rafael</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>4</td><td>8</td></tr>
+              <tr><td class="col-pareja">Argañaraz / Herrera</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>5</td><td>7</td></tr>
+              <tr><td class="col-pareja">Bertinat / Arias</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>7</td><td>14</td><td>-7</td></tr>
+              <tr><td class="col-pareja">Castañeda / Lescano</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>4</td><td>12</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Brizuela / Gallardo</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>4</td><td>12</td><td>-8</td></tr>
+              <tr><td class="col-pareja">Padula / Figueroa</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Romano / Orellana</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Suma 11 Femenina -->
+  <div class="categoria-bloque" data-categoria="Suma 11 Femenina">
+    <h3 class="categoria-titulo">Suma 11 Femenina</h3>
+    <div class="zonas-grid">
+      <article class="zona-card">
+        <h4>Zona A</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Diaz / Caceres</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>5</td><td>12</td><td>-7</td></tr>
+              <tr><td class="col-pareja">Alegre / Recchia</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Argañaraz / Jimenez</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td class="col-pareja">Rivero / Sesin</td><td class="pts">0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona B</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Roldan / Vivas</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>1</td><td>11</td></tr>
+              <tr><td class="col-pareja">Cejas / Cisneros</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>16</td><td>13</td><td>3</td></tr>
+              <tr><td class="col-pareja">Palavecino / Tula</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>13</td><td>16</td><td>-3</td></tr>
+              <tr><td class="col-pareja">Brunet / Skupin</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>1</td><td>12</td><td>-11</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona C</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Villalba / Cortez</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>12</td><td>8</td><td>4</td></tr>
+              <tr><td class="col-pareja">Cura / Montiel</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>15</td><td>13</td><td>2</td></tr>
+              <tr><td class="col-pareja">Roldan / Gonzales</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>13</td><td>15</td><td>-2</td></tr>
+              <tr><td class="col-pareja">Jimenez / Frias</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>8</td><td>12</td><td>-4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="zona-card">
+        <h4>Zona D</h4>
+        <div class="zona-table-wrap">
+          <table class="tabla-posiciones">
+            <thead>
+              <tr><th class="col-pareja">Pareja</th><th>Pts</th><th>PJ</th><th>PG</th><th>PP</th><th>SF</th><th>SC</th><th>DS</th><th>GF</th><th>GC</th><th>DG</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-pareja">Mussi / Suarez</td><td class="pts">300</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td>13</td><td>8</td><td>5</td></tr>
+              <tr><td class="col-pareja">Lorenzo / Leguizamon</td><td class="pts">200</td><td>1</td><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>17</td><td>13</td><td>4</td></tr>
+              <tr><td class="col-pareja">Mansilla / Lorenzo</td><td class="pts">100</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>13</td><td>17</td><td>-4</td></tr>
+              <tr><td class="col-pareja">Kusmus / Aguero</td><td class="pts">40</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>8</td><td>13</td><td>-5</td></tr>              
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <script>
+    function filtrarZonasCategoria(categoria, btnElement) {
+      const seccion = document.getElementById('zonas-liga');
+      const botones = seccion.querySelectorAll('.zonas-filter-btn');
+      const bloques = seccion.querySelectorAll('.categoria-bloque');
+
+      botones.forEach(btn => btn.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      bloques.forEach(bloque => {
+        if (categoria === 'todas' || bloque.getAttribute('data-categoria') === categoria) {
+          bloque.classList.remove('hidden-cat');
+        } else {
+          bloque.classList.add('hidden-cat');
+        }
+      });
+    }
+  </script>
 </section>
-<section class="portal-panel" id="calendario">
-<span class="portal-kicker">Fechas y actividades</span><h2>Calendario de la academia</h2><p class="portal-intro">Usá las flechas para cambiar de mes y seleccioná una fecha para consultar la actividad publicada.</p>
-<div class="schedule-layout"><div><div class="calendar-shell"><div class="calendar-head"><h3 id="calendarMonth" aria-live="polite">Mes</h3><div class="calendar-nav"><button id="prevMonth" type="button" aria-label="Mes anterior"><i class="fa-solid fa-chevron-left"></i></button><button id="nextMonth" type="button" aria-label="Mes siguiente"><i class="fa-solid fa-chevron-right"></i></button></div></div><div class="calendar-grid" id="calendarGrid" aria-label="Calendario mensual"></div></div><p class="small text-muted mt-2 mb-0"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#a75e1c;margin-right:5px"></span>Día con una actividad publicada.</p></div>
-<div class="event-panel"><span class="event-date" id="selectedDateLabel">Fecha seleccionada</span><h3 id="eventTitle">Elegí una fecha</h3><p id="eventDescription">Seleccioná un día para consultar si hay una actividad programada.</p><div class="event-detail"><i class="fa-regular fa-clock"></i><div><strong>Horario</strong><span id="eventTime">A confirmar</span></div></div><div class="event-detail"><i class="fa-solid fa-location-dot"></i><div><strong>Lugar</strong><span id="eventPlace">Royal Star’s Club</span></div></div><a class="portal-btn mt-3" href="https://wa.me/543855944628?text=Hola,%20quiero%20consultar%20por%20el%20cronograma%20de%20Royal%20Stars%20Club" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i> Consultar una fecha</a></div>
-</div>
-</section>
-<footer class="portal-footer">© <span id="currentYear"></span> Royal Star’s Club · <a href="index.html">Volver a la página principal</a> · <a href="novedades.html#noticias" rel="noopener" target="_blank">Ver noticias</a> · <a href="blog.html" rel="noopener" target="_blank">Ver Blog</a></footer>
-</main>
-<script src="assets/js/cronograma.js"></script>
+
+      <!-- SECCIÓN TABLA DE CRONOGRAMA -->
+      <section id="cronograma-tabla" class="panel" style="margin-top: 18px;">
+        <style>
+          .cronograma-wrapper { overflow-x: auto; border: 1px solid #e5e0d8; border-radius: 4px; }
+          .tabla-cronograma { width: 100%; border-collapse: collapse; text-align: left; min-width: 780px; font-size: 0.86rem; }
+          .tabla-cronograma th { background: var(--navy, #0c1b2d); color: #fff; padding: 12px 10px; font-weight: 900; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+          .tabla-cronograma td { padding: 11px 10px; border-bottom: 1px solid #e5e0d8; color: var(--navy, #0c1b2d); font-weight: 600; }
+          .tabla-cronograma tr:nth-child(even) { background: #fbf9f5; }
+          .tabla-cronograma tr:hover { background: #fdf5eb; }
+          .badge-cancha { background: #eef2f6; color: var(--blue, #173b63); font-weight: 800; padding: 4px 8px; border-radius: 3px; font-size: 0.78rem; white-space: nowrap; }
+          .badge-cat { color: var(--orange, #f58220); font-weight: 900; }
+          .hora-col { font-weight: 800; white-space: nowrap; }
+        </style>
+
+        <span class="kicker">Fecha 1</span>
+        <h2>Cronograma de Partidos</h2>
+
+        <div class="cronograma-wrapper">
+          <table class="tabla-cronograma">
+            <thead>
+              <tr>
+                <th>Día</th>
+                <th>Fecha</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Cancha</th>
+                <th>Categoría</th>
+                <th>Zona</th>
+                <th>Pareja 1</th>
+                <th>Pareja 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- VIERNES 06/11/2026 -->
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">5ta Masculina</td><td>Zona D</td><td>Milet / Garnica</td><td>Alcorta / Araujo</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">7ma Masculina</td><td>Zona C</td><td>Roldan / Lescano</td><td>Flamenco / Gerez</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">7ma Masculina</td><td>Zona C</td><td>Abelleira / Pacheco</td><td>Chamorro / Rios</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">8va Masculina</td><td>Zona A</td><td>Bustamante / Escalada A,</td><td>Ledesma / Gomez E,</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona C</td><td>Ruiz / Palmas</td><td>Lescano / Galvan I,</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">15:45</td><td>17:00</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">7ma Femenina</td><td>Zona B</td><td>Martinez / Larralde</td><td>Galeano / Cianferoni</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">16:30</td><td>17:45</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">5ta Masculina</td><td>Zona D</td><td>Alderete / Viotti</td><td>Bravo / Zambolin</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">16:30</td><td>17:45</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">6ta Masculina</td><td>Zona E</td><td>Abregu / Luna</td><td>Pappalardo / Lazarte</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">17:00</td><td>18:15</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">6ta Masculina</td><td>Zona B</td><td>Arias / Santucho</td><td>Salvi / Burgos</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">17:00</td><td>18:15</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">6ta Masculina</td><td>Zona E</td><td>Nader / Gassman</td><td>Ponce / Mansilla</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">17:00</td><td>18:15</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">8va Masculina</td><td>Zona D</td><td>Guzman / Villalba</td><td>Bolañez / Medina</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">18:00</td><td>19:15</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">7ma Femenina</td><td>Zona A</td><td>Micol / Chazarreta</td><td>Roldan / Colombres</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">18:00</td><td>19:15</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">8va Femenina</td><td>Zona A</td><td>Paz / Bianchi</td><td>Figueroa / Leguizamon</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">18:00</td><td>19:15</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">8va Masculina</td><td>Zona E</td><td>Gerez E, / Danna</td><td>Reuter / Alderete</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">18:15</td><td>19:30</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">8va Masculina</td><td>Zona D</td><td>Montenegro A, / Cereaolo</td><td>Coria P, / Luna</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">18:15</td><td>19:30</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">8va Masculina</td><td>Zona D</td><td>Miranda / Alfaro</td><td>Ruiz M, / Rojas</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">18:15</td><td>19:30</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona B</td><td>Coria / Soria</td><td>Ojeda / Sayago</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">19:15</td><td>20:30</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">7ma Femenina</td><td>Zona A</td><td>Chemez / Rojo</td><td>Fernandez / Araujo</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">19:15</td><td>20:30</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">8va Femenina</td><td>Zona A</td><td>Juarez / Enrico</td><td>Loto / Pedraza</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">19:15</td><td>20:30</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">Iniciadas Femenino</td><td>Zona A</td><td>Leiva / Julian</td><td>Contardi / Muratore</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">19:30</td><td>20:45</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">5ta Masculina</td><td>Zona E</td><td>Ledesma / Delgado</td><td>Camacho / Suarez</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">19:30</td><td>20:45</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">7ma Masculina</td><td>Zona D</td><td>Carabajal / Coronel</td><td>Troncozo / Diaz</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">19:30</td><td>20:45</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Suma 6 Masculina</td><td>Zona C</td><td>Lopez / Paz</td><td>Abate / Vizcarra</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">20:30</td><td>21:45</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">8va Masculina</td><td>Zona C</td><td>Gianonni / Terzano</td><td>Arias / Rojas</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">20:30</td><td>21:45</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">Iniciadas Femenino</td><td>Zona A</td><td>Abate / Trejo</td><td>Ganem / Moreno</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">20:30</td><td>21:45</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">Suma 11 Femenina</td><td>Zona B</td><td>Cejas / Cisneros</td><td>Palavecino / Tula</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">20:45</td><td>22:00</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">6ta Masculina</td><td>Zona D</td><td>Correa / Kapp</td><td>Rios / Guerrero</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">20:45</td><td>22:00</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona B</td><td>Abdala / Corvalan</td><td>Campos / Jimenez</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">20:45</td><td>22:00</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Suma 6 Masculina</td><td>Zona A</td><td>Sayago / Castillo</td><td>Pereyra / Ruiz</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">21:45</td><td>23:00</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">5ta Masculina</td><td>Zona C</td><td>Lopez / Arias</td><td>Olivera / Danna</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">21:45</td><td>23:00</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">6ta Masculina</td><td>Zona D</td><td>Lozano / cia</td><td>Sayago / Coria</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">21:45</td><td>23:00</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">8va Femenina</td><td>Zona C</td><td>Suarez / Gonzales</td><td>Abate / Trejo</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">22:00</td><td>23:15</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">8va Femenina</td><td>Zona C</td><td>Muño / Olivares</td><td>Toloza / Miranda</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">22:00</td><td>23:15</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">8va Masculina</td><td>Zona B</td><td>Hrourzek / Azar</td><td>Chavez / Lobo</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">22:00</td><td>23:15</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Iniciadas Femenino</td><td>Zona A</td><td>Bustos / Filippi</td><td>Coman / Coman</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">23:00</td><td>00:15</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">5ta Masculina</td><td>Zona B</td><td>Mussi / Garay</td><td>Romano / Coria</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">23:00</td><td>00:15</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">6ta Masculina</td><td>Zona B</td><td>Salvatierra / Alderete</td><td>Manzur / Cinquegrani</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">23:00</td><td>00:15</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">8va Masculina</td><td>Zona B</td><td>Ponce O, / Gerez L,</td><td>Pont / Orrego</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">23:15</td><td>00:30</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">7ma Masculina</td><td>Zona A</td><td>Villalba / Brizuela</td><td>Diaz N, / Dominguez</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">23:15</td><td>00:30</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">7ma Masculina</td><td>Zona B</td><td>Escalada / Suarez</td><td>Eberle / Demmateis</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">23:15</td><td>00:30</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">8va Masculina</td><td>Zona B</td><td>Riuiz / Ciappino</td><td>Campos / Lescano</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">00:15</td><td>01:30</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">5ta Masculina</td><td>Zona B</td><td>Greco / Scaglione</td><td>Gassmann / Arce</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">00:15</td><td>01:30</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">7ma Masculina</td><td>Zona H</td><td>Gomez / Pereyra</td><td>Leguizamon / Bolañez</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">00:15</td><td>01:30</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona B</td><td>Uriarte / Urquiza</td><td>Peña / Ysse</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">00:30</td><td>01:45</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">8va Masculina</td><td>Zona E</td><td>Rodas / Peralta</td><td>Storniolo / Segura</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">00:30</td><td>01:45</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">8va Masculina</td><td>Zona E</td><td>Salvatierra / Masferrer</td><td>Salvi / Lofiego</td></tr>
+              <tr><td>Viernes</td><td>06/11/2026</td><td class="hora-col">00:30</td><td>01:45</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona A</td><td>Diaz / Geovane</td><td>Sanchez / Luna</td></tr>
+
+              <!-- SÁBADO 07/11/2026 -->
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">6ta Masculina</td><td>Zona A</td><td>Risso / Paz</td><td>Serrano / Serrano</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">6ta Masculina</td><td>Zona A</td><td>Rovarini / Lludgar</td><td>Stochetti / Ruiz</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">7ma Masculina</td><td>Zona E</td><td>Arias / Leguizamon</td><td>Bolañez / Rodriguez</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">8va Femenina</td><td>Zona B</td><td>Coria / Mazzoleni</td><td>Infante / Cervetto</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">8va Masculina</td><td>Zona A</td><td>Carmona / Banegas</td><td>Veliz / Mansilla</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">15:00</td><td>16:15</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">Suma 11 Femenina</td><td>Zona C</td><td>Villalba / Cortez</td><td>Jimenez / Frias</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">16:15</td><td>17:30</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">5ta Masculina</td><td>Zona A</td><td>Beltran / Auat</td><td>Hernandez / Ibañez</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">16:15</td><td>17:30</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">8va Masculina</td><td>Zona C</td><td>Galvan / Guzman Terrera</td><td>Lopez / Diaz</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">16:15</td><td>17:30</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">Suma 11 Femenina</td><td>Zona C</td><td>Roldan / Gonzales</td><td>Cura / Montiel</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">17:00</td><td>18:15</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">7ma Masculina</td><td>Zona G</td><td>Roldan / Diaz, M</td><td>Rojas / Gutierrez</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">18:00</td><td>19:15</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">5ta Masculina</td><td>Zona A</td><td>Del Castillo / Curet</td><td>Garcia / Montero</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">18:00</td><td>19:15</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">6ta Masculina</td><td>Zona C</td><td>Faes / Maguna</td><td>Ibañez / Langui</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">18:00</td><td>19:15</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">7ma Femenina</td><td>Zona D</td><td>Perez / Cortez</td><td>Castañares / Lescano</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">18:00</td><td>19:15</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">8va Masculina</td><td>Zona C</td><td>Bravo / Cejas</td><td>Escalada E, / Robles</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">18:00</td><td>19:15</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona A</td><td>Karam / Escobar</td><td>Herrera / Ponce P,</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">18:15</td><td>19:30</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">7ma Masculina</td><td>Zona A</td><td>Martinez / Zanoni</td><td>Vidal / Chavez</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">19:15</td><td>20:30</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">7ma Femenina</td><td>Zona C</td><td>Orieta / Tobar</td><td>Abalos / DeMarchi</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">19:15</td><td>20:30</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">Iniciadas Femenino</td><td>Zona B</td><td>Busso / Romero</td><td>Soria / Caceres</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">19:15</td><td>20:30</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">Iniciadas Femenino</td><td>Zona C</td><td>Cajal / Ganin</td><td>Valdez / Silvetti</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">19:15</td><td>20:30</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Iniciadas Femenino</td><td>Zona C</td><td>Campos / Ruiz</td><td>Molina / Soler</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">19:15</td><td>20:30</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">Suma 11 Femenina</td><td>Zona D</td><td>Mussi / Suarez</td><td>Kusmus / Aguero</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">19:30</td><td>20:45</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">Suma 6 Masculina</td><td>Zona A</td><td>Celis / Mancuello</td><td>Montenegro / Cavallero</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">20:30</td><td>21:45</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">7ma Femenina</td><td>Zona D</td><td>Alegre / Rafael</td><td>Brizuela / Gallardo</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">20:30</td><td>21:45</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">8va Femenina</td><td>Zona B</td><td>Martinez / Romero</td><td>Bertinat / Arias</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">20:30</td><td>21:45</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">Iniciadas Femenino</td><td>Zona B</td><td>Llugdar / Darddat</td><td>Barbero / Infante</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">20:30</td><td>21:45</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona C</td><td>Galeano / Castaño</td><td>Guzman / Ponce A,</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">20:30</td><td>21:45</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">Suma 11 Femenina</td><td>Zona D</td><td>Lorenzo / Leguizamon</td><td>Mansilla / Lorenzo</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">21:00</td><td>22:15</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">Iniciadas Femenino</td><td>Zona B</td><td>Lescano / Gutierrez</td><td>Veron / Veron</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">21:45</td><td>23:00</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">6ta Masculina</td><td>Zona F</td><td>Corbalan / Diaz</td><td>Carrizo / Rodriguez</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">21:45</td><td>23:00</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">7ma Masculina</td><td>Zona D</td><td>Omill / Cisneros</td><td>Olivera / Aranda</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">21:45</td><td>23:00</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona C</td><td>Rodriguez / Goitea</td><td>Trullenque / Ledesma</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">21:45</td><td>23:00</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Suma 6 Masculina</td><td>Zona B</td><td>Lopez / Solivellas</td><td>Santillan / Salvatierra</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">22:00</td><td>23:15</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">7ma Femenina</td><td>Zona B</td><td>Castillo / Aguila</td><td>Gola / Nebro</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">22:15</td><td>23:30</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">8va Masculina</td><td>Zona F</td><td>Ferrando / Jimenez</td><td>Ruiz F, / Schiava</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">23:00</td><td>00:15</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">6ta Masculina</td><td>Zona F</td><td>Ledesma / Ledesma</td><td>Gonzales / Orona</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">23:00</td><td>00:15</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">6ta Masculina</td><td>Zona F</td><td>Raineri / Olivera</td><td>Ramirez / Mancuello</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">23:00</td><td>00:15</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">7ma Femenina</td><td>Zona C</td><td>Rojas / Butiler</td><td>Rossi / Rodini</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">23:00</td><td>00:15</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">7ma Masculina</td><td>Zona G</td><td>Costa / Saavedra</td><td>Lucca / Ferrou</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">23:15</td><td>00:30</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">7ma Masculina</td><td>Zona H</td><td>Vizcarra / Bernasconi</td><td>Burgos / Gomez</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">23:30</td><td>00:45</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">Suma 6 Masculina</td><td>Zona B</td><td>Quadreli / Castro</td><td>Bolomo / Bolomo</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">00:15</td><td>01:30</td><td><span class="badge-cancha">Cancha 1</span></td><td class="badge-cat">7ma Masculina</td><td>Zona B</td><td>Barrionuevo / Peralta</td><td>Cura / Lopez</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">00:15</td><td>01:30</td><td><span class="badge-cancha">Cancha 2</span></td><td class="badge-cat">7ma Masculina</td><td>Zona E</td><td>Paoletti / Ruiz</td><td>Gonzales / Zanni</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">00:15</td><td>01:30</td><td><span class="badge-cancha">Cancha 3</span></td><td class="badge-cat">8va Masculina</td><td>Zona F</td><td>Montenegro T, / Galvan</td><td>Benac / Coria A,</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">00:15</td><td>01:30</td><td><span class="badge-cancha">Cancha 5</span></td><td class="badge-cat">Iniciados Masculino</td><td>Zona A</td><td>Santillan / Santillan</td><td>Chara / Barquin</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">00:30</td><td>01:45</td><td><span class="badge-cancha">Cancha 6</span></td><td class="badge-cat">7ma Masculina</td><td>Zona F</td><td>Ponti / Falcon</td><td>Carrillo / Urrere</td></tr>
+              <tr><td>Sábado</td><td>07/11/2026</td><td class="hora-col">00:45</td><td>02:00</td><td><span class="badge-cancha">Cancha 4</span></td><td class="badge-cat">8va Masculina</td><td>Zona F</td><td>Godoy / Torres</td><td>Almada / Cervera</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- FIN SECCIÓN TABLA DE CRONOGRAMA -->
+
+    </div>
+  </main>
 </body>
 </html>
