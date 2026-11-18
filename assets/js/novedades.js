@@ -2,35 +2,24 @@
   'use strict';
   const STORAGE_KEY = 'royalStarsClubNewsV1';
   const DATA_URL = 'assets/data/novedades.json';
-  // Permite previsualizar las noticias principales al abrir novedades.html directamente o si no están en novedades.json
-  const FALLBACK_NEWS = [
-    {
-      id: 'duelo-hermanas-lorenzo-2026-11-07',
-      title: 'Duelo de hermanas: Lorenzo vs. Lorenzo, uno de los encuentros más especiales de la primera jornada',
-      category: 'Competencia',
-      date: '2026-11-07',
-      summary: 'La primera fecha de la Liga Royal tuvo un enfrentamiento particular en Damas Suma 11: Delfina y Martina Lorenzo se encontraron frente a frente en un partido que combinó competencia, emoción y un vínculo familiar.',
-      content: 'Crónica oficial de la primera fecha de la Liga Royal.',
-      url: 'nota-duelo-hermanas-lorenzo.html'
-    },
-    {
-      id: 'suarez-mussi-debut-2026-11-06',
-      title: 'Suárez y Mussi: un debut con victoria en la Liga Royal 2026',
-      category: 'Competencia',
-      date: '2026-11-06',
-      summary: 'Camila Mussi y Julieta Suárez comenzaron su participación en la categoría Damas Suma 11 con una victoria frente a Kusmus y Agüero en dos parciales.',
-      content: 'Crónica oficial del debut de Suárez y Mussi en la primera jornada de la Liga Royal 2026.',
-      url: 'nota-suarez-mussi-debut.html'
-    }
-  ];
-
+  // Permite previsualizar la noticia principal al abrir novedades.html directamente con file://.
+  const FALLBACK_NEWS = [{
+    id: 'duelo-hermanas-lorenzo-2026-11-07',
+    title: 'Duelo de hermanas: Lorenzo vs. Lorenzo, uno de los encuentros más especiales de la primera jornada',
+    category: 'Competencia',
+    date: '2026-11-07',
+    summary: 'La primera fecha de la Liga Royal tuvo un enfrentamiento particular en Damas Suma 11: Delfina y Martina Lorenzo se encontraron frente a frente en un partido que combinó competencia, emoción y un vínculo familiar.',
+    content: 'Crónica oficial de la primera fecha de la Liga Royal.',
+    url: 'noticia-duelo-hermanas-lorenzo.html'
+  }];
   const grid = document.getElementById('newsGrid');
+  const excludedCategory = grid?.dataset.excludeCategory;
   const search = document.getElementById('newsSearch');
   const filters = document.getElementById('newsFilters');
   const dialog = document.getElementById('newsDialog');
   const dialogContent = document.getElementById('dialogContent');
   let newsItems = [];
-  let activeFilter = 'Todas';
+  let activeFilter = grid?.dataset.category || 'Todas';
 
   const safeText = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({
     '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
@@ -47,12 +36,12 @@
   const normalizeItems = (items) => Array.isArray(items)
     ? items.filter(item => item && typeof item.title === 'string').map(item => ({
         id: String(item.id || `${Date.now()}-${Math.random().toString(16).slice(2)}`),
-        title: String(item.title || '').slice(0, 120),
+        title: String(item.title || '').slice(0, 100),
         category: ['Academia','Competencia','Comunidad','Blog'].includes(item.category) ? item.category : 'Academia',
         date: /^\d{4}-\d{2}-\d{2}$/.test(item.date || '') ? item.date : new Date().toISOString().slice(0,10),
         summary: String(item.summary || '').slice(0,300),
         content: String(item.content || item.summary || ''),
-        image: typeof item.image === 'string' && (item.image.startsWith('data:image/') || /^(?:assets\/img\/)?[\w./-]+\.(?:jpg|jpeg|png|webp|svg)$/i.test(item.image)) ? item.image : '',
+        image: typeof item.image === 'string' && (item.image.startsWith('data:image/') || /^assets\/img\/[\w./-]+$/.test(item.image)) ? item.image : '',
         // Solo se permiten páginas HTML locales del propio sitio.
         url: typeof item.url === 'string' && /^[a-zA-Z0-9_-]+\.html(?:#[a-zA-Z0-9_-]+)?$/.test(item.url) ? item.url : ''
       }))
@@ -61,12 +50,14 @@
   function render() {
     const term = (search?.value || '').trim().toLocaleLowerCase('es-AR');
     const visible = newsItems.filter(item =>
+      item.category !== excludedCategory &&
       (activeFilter === 'Todas' || item.category === activeFilter) &&
       `${item.title} ${item.summary} ${item.content} ${item.category}`.toLocaleLowerCase('es-AR').includes(term)
     );
 
     if (!visible.length) {
-      grid.innerHTML = `<div class="news-empty"><strong>${newsItems.length ? 'No encontramos publicaciones' : 'Todavía no hay noticias publicadas'}</strong><br><span>${newsItems.length ? 'Probá con otro filtro o búsqueda.' : 'Pronto vamos a compartir nuevas noticias y actividades de Royal.'}</span></div>`;
+      const isBlog = activeFilter === 'Blog';
+      grid.innerHTML = `<div class="news-empty"><strong>${newsItems.length ? 'No encontramos publicaciones' : isBlog ? 'Todavía no hay artículos en el blog' : 'Todavía no hay noticias publicadas'}</strong><br><span>${newsItems.length ? 'Probá con otro filtro o búsqueda.' : isBlog ? 'Pronto vamos a compartir artículos y experiencias de Royal.' : 'Pronto vamos a compartir nuevas noticias y actividades de Royal.'}</span></div>`;
       return;
     }
 
@@ -76,7 +67,7 @@
         <div class="news-card-body">
           <div class="news-meta"><span>${safeText(item.category)}</span><time datetime="${safeText(item.date)}">${safeText(formatDate(item.date))}</time></div>
           <h3>${safeText(item.title)}</h3><p>${safeText(item.summary)}</p>
-          <button type="button" data-open-news="${safeText(item.id)}">Leer noticia <i class="fa-solid fa-arrow-right ms-1"></i></button>
+          <button type="button" data-open-news="${safeText(item.id)}">Leer ${item.category === 'Blog' ? 'artículo' : 'noticia'} <i class="fa-solid fa-arrow-right ms-1"></i></button>
         </div>
       </article>`).join('');
   }
@@ -101,12 +92,9 @@
       if (!response.ok) throw new Error('No se pudo leer el archivo de novedades.');
       publishedItems = normalizeItems(await response.json());
     } catch {
-      // Con file:// algunos navegadores bloquean fetch; mostrar las crónicas principales.
+      // Con file:// algunos navegadores bloquean fetch; mostrar al menos la crónica principal.
       publishedItems = normalizeItems(FALLBACK_NEWS);
     }
-
-    // Asegura que las notas de FALLBACK_NEWS estén siempre presentes aunque novedades.json no las tenga aún
-    const fallbackNormalized = normalizeItems(FALLBACK_NEWS);
 
     // Conserva publicaciones locales anteriores, pero nunca oculta las del repositorio.
     let localItems = [];
@@ -119,9 +107,7 @@
       }
     }
 
-    const merged = new Map();
-    fallbackNormalized.forEach(item => merged.set(item.id, item));
-    publishedItems.forEach(item => merged.set(item.id, item));
+    const merged = new Map(publishedItems.map(item => [item.id, item]));
     localItems.forEach(item => merged.set(item.id, item));
     newsItems = [...merged.values()];
     render();
